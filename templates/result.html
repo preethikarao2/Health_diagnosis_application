@@ -1,0 +1,310 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" content="Health Diagnosis Application">
+  <meta name="author" content="Preethika Rao">
+  <meta name="og:image" content="static/logo2.png">
+  <meta name="Keywords" content="Flask, Machine Learning, Deep Learning, Artificial Intelligence, AI, ML,DL, Web Development">
+  <meta name="description" content="A Machine Learning and Deep Learning based webapp for Multiple Disease Prediction.">
+  <title>Disease Predictor</title>
+  <link rel="icon" href="{{ url_for('static', filename = 'logo2.png') }}" type="image/icon type">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <style>
+    html, body{ height:100%; margin:0; }
+header{ height:50px;}
+footer{ height:75px; background:black; }
+
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
+  
+}
+
+footer{
+  padding:10px;
+  margin-top:auto;
+  margin-bottom: auto; 
+}
+  </style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" style="background-color: black !important;">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ml-auto">
+             <li class="nav-item active">
+               <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+             </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('pneumoniaPage') }}">Pneumonia</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('malariaPage') }}">Malaria</a>
+              </li>
+             <li class="nav-item active">
+               <a class="nav-link" href="{{ url_for('diabetesPage') }}">Diabetes</a>
+             </li>
+             <li class="nav-item active">
+               <a class="nav-link" href="{{ url_for('cancerPage') }}">Breast Cancer</a>
+             </li>
+            
+           <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('news') }}">NEWS</a>
+              </li>
+             
+              
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('team') }}">Team</a>
+              </li>
+           </ul>
+         </div>
+       </nav>
+	<br>
+<br>
+<br>
+<br>
+<main>
+	<div class="container-fluid" style="margin-bottom: 20px;">
+	{% block content %}
+
+	{% endblock %}
+    </div>
+  </main>
+   <body>
+       <h1> {{ prediction_text }}</h1>
+      <section class="container community text-center">
+
+	<h1 id="COMMUNITY"> COMMUNITY </h1>
+	<p>"The human spirit is stronger than anything that can happen to it."</p>
+		<p>Find online communities and support groups here.</p>
+
+	<div class="row rowsetting">
+
+		<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto  bg-light">
+		<div class=" imgsetting d-block m-auto bg-warning "> <i class="fa fa-users fa-3x"> </i></div>	
+
+		<h2><a href="https://4thangel.ccf.org/">4th Angel Mentoring Program</a></h2>
+		<p> It provides free, one-on-one, confidential telephone support for people with cancer and their caregivers. Trained mentors who are cancer survivors or have been a caregiver to a person with cancer offer support and guidance during a difficult time.It helps people find support no matter where they live</p>
+
+		</div>
+
+
+
+		<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+		<div class=" imgsetting d-block m-auto bg-warning"> <i class="fa fa-users fa-3x"> </i></div>	
+
+		<h2><a href="http://www.mylifeline.org/">MyLifeline.org</a></h2>
+		<p>It is a part of the Cancer Support Community. It provides free websites for people with cancer and caregivers to keep family and friends updated. A calendar on the site helps you keep track of doctor and treatment visits and other important appointments. Plus, you can post requests for help, such as rides to appointments, babysitting, or donations.</p>
+
+		</div>
+
+
+
+
+		<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto  bg-light">
+		<div class=" imgsetting d-block m-auto bg-warning"> <i class="fa fa-users fa-3x"> </i></div>	
+
+		<h2><a href="https://www.cancercare.org/support_groups">CancerCare</a></h2>
+		<p> It offers about 100 online groups for people with cancer and their loved ones. The groups are led by oncology social workers who give support and guidance.It  helps you coordinate caregiving tasks among family members and friends. It  helps communicate updates in a patient care journal, share pictures, and coordinate help.
+
+Friend for Life Cancer Support Network</p>
+
+		</div>
+
+
+</div>
+
+ </section>
+
+<!--  
+//////////////////////////////////NEWS////////////////////////////////////-->
+ <section class="news bg-light">
+ 	<div class="container text-center"> 
+ 		<h1 id="NEWS" class="bg-white"> NEWS </h1>
+ 		<p>Get latest medical news and breakthroughs here. </p>
+
+ 		<div class="row">
+
+ 			<div class="col-lg-4 col-md-4 col-sm-12 col-10
+ 			d-block m-auto">
+ 			<div class="card">
+ 				<img src="static/imgs/News/thumbnail1.jpg" class="card-img img-fluid">
+ 				<div class="card-body ">
+ 					<h2 class="card-title">Study Finds Antioxidants Risky During Breast Cancer Chemotherapy</h2>
+ 					<p class="card-text">A small study found that patients who took antioxidants had higher chances of cancer recurrence and death.</p>
+ 				</div>
+ 			</div>
+		    </div>
+
+		    <div class="col-lg-4 col-md-4 col-sm-12 col-10
+ 			d-block m-auto">
+ 			<div class="card">
+ 				<img src="static/imgs/News/thumbnail2.jpg" class="card-img img-fluid">
+ 				<div class="card-body">
+ 					<h2 class="card-title">Common Questions About the COVID-19 Outbreak</h2>
+ 					<p class="card-text">Some cancer patients might be at increased risk of serious illness from an infection because their immune systems can be weakened by cancer and its treatments.</p>
+ 				</div>
+ 			</div>
+		    </div>
+
+		    <div class="col-lg-4 col-md-4 col-sm-12 col-10
+ 			d-block m-auto">
+ 			<div class="card">
+ 				<img src="static/imgs/News/thumbnail3.jpg" class="card-img img-fluid">
+ 				<div class="card-body">
+ 					<h2 class="card-title">Study: More Steps Per Day Linked With Longer Life</h2>
+ 					<p class="card-text">A new observational study shows that taking more steps each day – even if you walk at a regular pace – is linked with living longer.</p>
+ 				</div>
+ 			</div>
+		    </div>
+
+		    <div class="row">
+ 			<div class="col-lg-4 col-md-4 col-sm-12 col-10
+ 			d-block m-auto">
+ 			<div class="card">
+ 				<img src="static/imgs/News/thumbnail4.jpg" class="card-img img-fluid">
+ 				<div class="card-body">
+ 					<h2 class="card-title">Study: Getting Enough Exercise Lowers Risk of 7 Cancers</h2>
+ 					<p class="card-text">Getting recommended amounts of physical activity is linked to a lower risk for 7 cancer types, according to a study from the American Cancer Society and others.</p>
+ 				</div>
+ 			</div>
+		    </div>
+
+		    <div class="col-lg-4 col-md-4 col-sm-12 col-10
+ 			d-block m-auto">
+ 			<div class="card">
+ 				<img src="static/imgs/News/thumbnail5.jpg" class="card-img img-fluid">
+ 				<div class="card-body">
+ 					<h2 class="card-title">Study Finds Losing Weight After 50 May Lower Breast Cancer Risk</h2>
+ 					<p class="card-text">Women who lose weight after age 50 and keep it off have a lower risk of breast cancer than women whose weight stays the same, according to a study from researchers at the American Cancer Society and others.</p>
+ 				</div>
+ 			</div>
+		    </div>
+
+		    <div class="col-lg-4 col-md-4 col-sm-12 col-10
+ 			d-block m-auto">
+ 			<div class="card">
+ 				<img src="static/imgs/News/thumbnail6.jpg" class="card-img img-fluid">
+ 				<div class="card-body">
+ 					<h2 class="card-title">Study Finds Possible Link Between Hair Dye, Straighteners, and Breast Cancer</h2>
+ 					<p class="card-text">A study from researchers at the National Institute of Health (NIH) found that women who used permanent hair dye and chemical hair straighteners had a higher risk of breast cancer than women who didn’t use them.</p>
+ 				</div>
+ 			</div>
+		    </div>
+ 			
+ 		</div>
+ 			
+ 		</div>
+
+
+ 	</div>
+
+ 	
+</section>
+
+
+<!-- ///////////////////////////////////TEAM///////////////////////////////// -->
+<!-- <section class="ourteam">
+	<div class="container text-center">
+		<h2>TEAM</h2>
+		<p>TEAM</p>
+		
+	</div>
+</section>
+ -->
+
+<section class="footer text-center">
+  <h1 id="TEAM" class="font-weight-bold bg-light">THE TEAM</h1>
+  
+
+
+  <div class="row">
+  	<div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block
+  	m-auto">
+  	<figure class="figure">
+  		<img src="static/member1.jpg" class="figure-img
+  		img-fluid rounded-circle" height="250px" width="250px">
+  		<figcaption>
+  			<h4> Korappati Naga Ruthvika </h4>
+  			<p class="figure-caption">ML Expert</p>
+  		</figcaption>
+  		
+  	</figure>
+  	
+
+  </div>
+
+
+  	<div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block
+  	m-auto">
+  	<figure class="figure">
+  		<img src="static/member2.jpg" class="figure-img
+  		img-fluid rounded-circle" height="250px" width="250px">
+  		<figcaption>
+  			<h4> Gujjula Preethika </h4>
+  			<p class="figure-caption">ML Expert</p>
+  		</figcaption>
+  		
+  	</figure>
+  	
+
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block
+  	m-auto">
+  	<figure class="figure">
+  		<img src="static/member3.jpg" class="figure-img
+  		img-fluid rounded-circle" height="250px" width="250px">
+  		<figcaption>
+  			<h4> Sahithi </h4>
+  			<p class="figure-caption">Web Developer</p>
+  		</figcaption>
+  		
+  	</figure>
+  	
+
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block
+  	m-auto">
+  	<figure class="figure">
+  		<img src="static/member4.jpg" class="figure-img
+  		img-fluid rounded-circle" height="250px" width="250px">
+  		<figcaption>
+  			<h4> HimaBindu</h4>
+  			<p class="figure-caption">Web Developer</p>
+  		</figcaption>
+  		
+  	</figure>
+  	
+
+  </div>
+</div>
+</section>
+  <footer>
+    <center>
+      <ul style="list-style-type:none;">
+      <li style="display: inline;"><a href="https://www.linkedin.com/in/preethika-rao/" style="color: white;" target="blank"><span class="fa fa-linkedin">  LinkedIn</span></a></li>
+      &nbsp;
+      <li style="display: inline;"><a href="https://github.com/preethikarao2" style="color: white;" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
+      <li><p style="color: white;">Made with <span style="color: red;">&hearts;</span> by GNITS Team </p></li>
+    </ul>
+  </center>
+  </footer>
+</body>
+</html>
